@@ -291,7 +291,7 @@ module Sinatra
   #
   # Possible options are:
   #   :layout       If set to false, no layout is rendered, otherwise
-  #                 the specified layout is used (Ignored for `sass` and `less`)
+  #                 the specified layout is used (Ignored for `sass`, `scss` and `less`)
   #   :locals       A hash with local variables that should be available
   #                 in the template
   module Templates
@@ -314,6 +314,11 @@ module Sinatra
     def sass(template, options={}, locals={})
       options[:layout] = false
       render :sass, template, options, locals
+    end
+
+    def scss(template, options={}, locals={})
+      options[:layout] = false
+      render :scss, template, options, locals
     end
 
     def less(template, options={}, locals={})
